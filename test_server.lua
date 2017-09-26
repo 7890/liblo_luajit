@@ -55,9 +55,13 @@ if (st==nil) then
 	print ("could not create server on port " .. port .. ". server already running?")
 	return 1
 end
+print("server started on port " .. port);
 
 lo:server_thread_add_method(st,"/ping","hsf",ping_handler,nil)
 lo:server_thread_add_method(st,"/pong","hsf",pong_handler,nil)
+
+print("hit enter to start ping pong, enter again to stop.")
+io.read()
 
 --send to self, start ping/ping
 lo:send(lo:address_new("localhost",port),"/ping","isf",1,"a b c d € f g",0.3)
@@ -67,6 +71,7 @@ lo:server_thread_start(st)
 print("server running on port " .. port .. ". press any key to quit.")
 io.read()
 
+--something goes wrong here
 print("cleaning up")
 lo:server_thread_del_method(st, "/ping", "hsf")
 lo:server_thread_del_method(st, "/pong", "hsf")

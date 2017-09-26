@@ -13,7 +13,7 @@ git clone https://github.com/7890/liblo_luajit && cd liblo_luajit && ./create_lo
 
 oscdump 9999 &
 OPID=$!
-#sending a message with all known types inlucded
+#sending a message with all known types included
 ./test_send_message.lua.sh localhost 9999 /test
 kill -9 $OPID
 

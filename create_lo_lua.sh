@@ -32,8 +32,8 @@ function find_lo_header
 {
 
 echo "finding lo header ...">&2
-
-LO_HEADER_FILE="`pkg-config --cflags-only-I liblo | cut -d'I' -f2-`/lo/lo.h"
+export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1
+LO_HEADER_FILE="`pkg-config --cflags-only-I liblo | cut -d'I' -f2- | cut -d" " -f1`/lo/lo.h"
 #LO_HEADER_FILE="/usr/include/lo/lo.h"
 
 if [ ! -r "$LO_HEADER_FILE" ]

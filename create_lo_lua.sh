@@ -186,7 +186,10 @@ cat - << __EOF__
 --lo_* helper methods
 --other convenience methods that are no part of liblo
 
---function lo:send(host,port,path,typestring,...)
+function lo:send_flat(host,port,path,typestring,...)
+	return lo:send(lo:address_new(host,port),path,typestring,...)
+end
+
 function lo:send(address,path,typestring,...)
 	local n = select('#', ...)
 	local t = {...}

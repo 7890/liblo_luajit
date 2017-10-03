@@ -6,7 +6,10 @@ https://github.com/radarsat1/liblo/
 https://github.com/LuaJIT/LuaJIT/
 
 ```
-git clone https://github.com/7890/liblo_luajit && cd liblo_luajit && ./create_lo_lua.sh > lo.lua
+git clone https://github.com/7890/liblo_luajit && cd liblo_luajit
+
+#re-generating lo.lua needs installed liblo headers (package ~ liblo-dev)
+#./create_lo_lua.sh > lo.lua
 
 #just trying to require "lo"
 ./test_minimal.lua.sh
